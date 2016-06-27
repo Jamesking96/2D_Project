@@ -192,7 +192,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   animator: {fileID: 0}
   weapon: {fileID: 0}
-  health: 0
+  health: 100
 --- !u!50 &86645564
 Rigidbody2D:
   serializedVersion: 2
@@ -556,15 +556,16 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1423429828}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8406f87efd090744b1d08eff11725f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attacking: 0
-  animation_time: 0
+  animation_time: 0.5
   ignore_animation_time: 0
   force_application_amount: {x: 0, y: 0}
+  damage: 25
 --- !u!50 &1423429830
 Rigidbody2D:
   serializedVersion: 2

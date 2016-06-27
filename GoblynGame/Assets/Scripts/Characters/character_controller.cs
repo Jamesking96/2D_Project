@@ -18,4 +18,23 @@ public class character_controller : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void Add_Health(int amount){
+		health += amount;
+	}
+
+	public void Remove_Health(int amount){
+		health -= amount;
+		Health_Check ();
+	}
+
+	public int Get_Health(){
+		return health;
+	}
+
+	public void Health_Check(){
+		if(health <= 0){
+			Destroy (this.gameObject);
+		}
+	}
 }

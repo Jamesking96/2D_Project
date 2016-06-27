@@ -3,8 +3,6 @@ using System.Collections;
 
 public class player_controller : character_controller {
 
-
-
 	// Use this for initialization
 	void Start () {
 		movement = GetComponent <character_movement> ();
