@@ -3,11 +3,12 @@ using System.Collections;
 
 public class player_controller : character_controller {
 
+	public weapon_controller weapon;
+
 	// Use this for initialization
 	void Start () {
 		movement = GetComponent <character_movement> ();
 		animator = GetComponent <Animator> ();
-		weapon = GetComponentInChildren <weapon_base> ();
 	}
 	
 	// Update is called once per frame
@@ -31,23 +32,15 @@ public class player_controller : character_controller {
 		}
 
 		if(Input.GetKeyDown (KeyCode.A)){
-			if (weapon.attacking == false) {
-				Attack ();
-			}
+			
+		}
+
+		if(Input.GetKeyDown (KeyCode.E)){
+			
 		}
 	}
 
-	void Attack(){
-		animator.SetBool ("attacking", true);
-		weapon.attacking = true;
-		StartCoroutine (Stop_Attack (weapon.animation_time));
+	void OnTriggerEnter2D(Collider2D _col){
 	}
-
-	IEnumerator Stop_Attack(float wait_time){
-		yield return new WaitForSeconds (wait_time);
-		animator.SetBool ("attacking", false);
-		weapon.attacking = false;
-	}
-
 
 }

@@ -5,8 +5,11 @@ public class character_controller : MonoBehaviour {
 
 	public character_movement movement;
 	public Animator animator;
-	public weapon_base weapon;
 	public int health;
+
+	public float attack_distance;
+	public int attack_damage;
+	public float attack_delay;
 
 	// Use this for initialization
 	void Start () {
@@ -34,7 +37,12 @@ public class character_controller : MonoBehaviour {
 
 	public void Health_Check(){
 		if(health <= 0){
-			Destroy (this.gameObject);
+			Die ();
 		}
 	}
+
+	void Die(){
+		Destroy (this.gameObject);
+	}
+		
 }
