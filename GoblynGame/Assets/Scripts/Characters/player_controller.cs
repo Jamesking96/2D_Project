@@ -3,12 +3,11 @@ using System.Collections;
 
 public class player_controller : character_controller {
 
-	public weapon_controller weapon;
-
 	// Use this for initialization
 	void Start () {
 		movement = GetComponent <character_movement> ();
 		animator = GetComponent <Animator> ();
+		weapon = GetComponentInChildren <weapon_controller> ();
 	}
 	
 	// Update is called once per frame
@@ -32,7 +31,7 @@ public class player_controller : character_controller {
 		}
 
 		if(Input.GetKeyDown (KeyCode.A)){
-			
+			weapon.Attack ();
 		}
 
 		if(Input.GetKeyDown (KeyCode.E)){

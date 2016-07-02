@@ -192,9 +192,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   animator: {fileID: 0}
   health: 100
-  attack_distance: 0
-  attack_damage: 0
-  attack_delay: 0
+  weapon: {fileID: 0}
 --- !u!50 &86645564
 Rigidbody2D:
   serializedVersion: 2
@@ -263,7 +261,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 86645562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -439,6 +437,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 796359573}
   - 114: {fileID: 796359574}
+  - 58: {fileID: 796359575}
   m_Layer: 0
   m_Name: weapon_range
   m_TagString: Untagged
@@ -471,6 +470,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: 0
+  attack_method: 0
+  range: 0
+  damage: 0
+  enemies: []
+--- !u!58 &796359575
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 796359572}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &922696216
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,9 +612,6 @@ MonoBehaviour:
   movement: {fileID: 1756927070}
   animator: {fileID: 1756927073}
   health: 100
-  attack_distance: 0
-  attack_damage: 0
-  attack_delay: 0
   weapon: {fileID: 0}
 --- !u!50 &1756927072
 Rigidbody2D:
