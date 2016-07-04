@@ -10,12 +10,14 @@ public class weapon_controller : MonoBehaviour {
 	attack_methods[] attack_types;
 	float[] attack_ranges;
 	float[] damage_amounts;
+	float[] attack_lengths;
 
 	public weapons weapon;
 	public attack_methods attack_method;
 
 	public float range;
 	public float damage;
+	public float attack_length;
 
 	CircleCollider2D collider;
 
@@ -31,6 +33,7 @@ public class weapon_controller : MonoBehaviour {
 		};
 		attack_ranges = new float[] {1, 2, 3, 4, 5, 6, 7, 8 };
 		damage_amounts = new float[] { 9, 10, 11, 12, 13, 14, 15, 16 };
+		attack_lengths = new float[] { 1, 1, 1, 1, 1, 1, 1, 1 };
 
 		collider = GetComponent <CircleCollider2D> ();
 
@@ -49,6 +52,7 @@ public class weapon_controller : MonoBehaviour {
 		range = attack_ranges [(int)weapon];
 		damage = damage_amounts [(int)weapon];
 		collider.radius = range;
+		attack_length = attack_lengths [(int)weapon];
 	}
 
 	public void Attack(){

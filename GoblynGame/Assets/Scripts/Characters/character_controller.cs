@@ -23,7 +23,11 @@ public class character_controller : MonoBehaviour {
 
 	public void Remove_Health(int amount){
 		health -= amount;
+		React ();
 		Health_Check ();
+	}
+
+	public void React(){
 	}
 
 	public int Get_Health(){
