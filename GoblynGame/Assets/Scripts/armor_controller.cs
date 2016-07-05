@@ -13,18 +13,21 @@ public class armor_controller : MonoBehaviour {
 
 	int[] armor_visibility_modifier; //assumes each armor set has same amount and are worth same
 
-	head_armors head_armor;
-	body_armors body_armor;
-	legs_armors leg_armor;
+	public head_armors head_armor;
+	public body_armors body_armor;
+	public legs_armors leg_armor;
 
 	public int hiddenness; //higher is better
+	public int damage_resistance; //higher is better
 
 	// Use this for initialization
 	void Start () {
 		head_damage_reduction = new int[] { 0, 1, 2, 3};
 		body_damage_reduction = new int[] { 0, 1, 2, 3 };
 		leg_damage_reduction = new int[] { 0, 1, 2, 3 };
-		armor_visibility_modifier = new int[] { -1, 1, 2, 3 }; //probably needs re-weighting
+		armor_visibility_modifier = new int[] {-3, 1, 2, 3};
+		Calculate_Skin_Visibility ();
+		Calculate_Damage_Resistance ();
 	}
 	
 	// Update is called once per frame
@@ -35,19 +38,26 @@ public class armor_controller : MonoBehaviour {
 	void Set_Head_Armor(head_armors _head_armor){
 		head_armor = _head_armor;
 		Calculate_Skin_Visibility ();
+		Calculate_Damage_Resistance ();
 	}
 
 	void Set_Body_armors(body_armors _body_armor){
 		body_armor = _body_armor;
 		Calculate_Skin_Visibility ();
+		Calculate_Damage_Resistance ();
 	}
 
 	void Set_Leg_armors(legs_armors _leg_armor){
 		leg_armor = _leg_armor;
 		Calculate_Skin_Visibility ();
+		Calculate_Damage_Resistance ();
 	}
 
 	void Calculate_Skin_Visibility(){
-		hiddenness = armor_visibility_modifier [(int)head_armor] + armor_visibility_modifier [(int)body_armor] + armor_visibility_modifier [(int)leg_armor];
+		hiddenness += (armor_visibility_modifier [(int)head_armor] + armor_visibility_modifier[(int)body_armor] + armor_visibility_modifier[(int)leg_armor]);
+	}
+
+	void Calculate_Damage_Resistance(){
+		damage_resistance = (int)head_armor + (int)body_armor + (int)leg_armor;
 	}
 }
