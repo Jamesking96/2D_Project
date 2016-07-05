@@ -6,6 +6,7 @@ public class ai_controller : character_controller {
 	GameObject player_object;
 	public float player_chase_range;
 	public float character_attack_range;
+	public float attack_delay;
 	
 
 	// Use this for initialization
@@ -21,7 +22,7 @@ public class ai_controller : character_controller {
 		}
 		else if(distance < character_attack_range){ //can this be collapsed into 1?
 			movement.Set_Direction (0);
-			Attack ();
+			StartCoroutine (Attack_Player ());
 		}
 		else
 		{
@@ -38,7 +39,8 @@ public class ai_controller : character_controller {
 		}
 	}
 
-	void Attack(){
-		print ("TAKE THAT PLAYER!");
+	IEnumerator Attack_Player(){
+		yield return new WaitForSeconds (attack_delay);
+		StartCoroutine (weapon.Start_Attack ());
 	}
 }

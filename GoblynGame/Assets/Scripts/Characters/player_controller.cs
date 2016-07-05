@@ -31,7 +31,7 @@ public class player_controller : character_controller {
 		}
 
 		if(Input.GetKeyDown (KeyCode.A)){
-			weapon.Attack ();
+			StartCoroutine (weapon.Start_Attack ());
 		}
 
 		if(Input.GetKeyDown (KeyCode.E)){

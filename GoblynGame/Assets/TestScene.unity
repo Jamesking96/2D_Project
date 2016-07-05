@@ -293,6 +293,10 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 11489078, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
+      propertyPath: weapon
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
   m_IsPrefabParent: 0
@@ -489,17 +493,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11440422, guid: bc22a0d6e4488f748908efdcec10af74, type: 2}
-      propertyPath: max_speed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 11472850, guid: bc22a0d6e4488f748908efdcec10af74, type: 2}
-      propertyPath: player_chase_range
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472850, guid: bc22a0d6e4488f748908efdcec10af74, type: 2}
-      propertyPath: character_attack_range
-      value: 1
+      propertyPath: attack_delay
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc22a0d6e4488f748908efdcec10af74, type: 2}
