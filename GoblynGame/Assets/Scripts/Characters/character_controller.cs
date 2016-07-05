@@ -8,6 +8,9 @@ public class character_controller : MonoBehaviour {
 	public int health;
 	public weapon_controller weapon;
 
+	public int gold;
+	public int teeth;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -38,6 +41,22 @@ public class character_controller : MonoBehaviour {
 
 	void Die(){
 		Destroy (this.gameObject);
+	}
+
+	public void Add_Gold(int amount){
+		gold += amount;
+	}
+
+	public void Remove_Gold(int amount){
+		gold -= amount;
+	}
+
+	public void Add_Teeth(int amount){
+		teeth += amount;
+	}
+
+	public void Remove_Teeth(int amount){
+		teeth -= amount;
 	}
 		
 }
