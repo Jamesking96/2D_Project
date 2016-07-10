@@ -57,6 +57,5 @@ public class character_controller : MonoBehaviour {
 
 	public void Remove_Teeth(int amount){
 		teeth -= amount;
-	}
-		
+	}		
 }
