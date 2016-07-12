@@ -281,6 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e467057c97125d34f9d20d579d23a223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textbox_position: {x: -4, y: 80, z: 0}
+  positioning_element: {fileID: 1043478209}
   panel_transform: {fileID: 1043478210}
   text_file: {fileID: 4900000, guid: 5041c81d01bbd7047bbefdff2db1d917, type: 3}
   lines: []
@@ -301,7 +303,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.8814192, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 2.3221245, y: 1}
 --- !u!114 &158622864
@@ -402,6 +404,7 @@ GameObject:
   - 92: {fileID: 361806954}
   - 124: {fileID: 361806953}
   - 81: {fileID: 361806952}
+  - 114: {fileID: 361806957}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -471,12 +474,26 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 361806951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -7.07, y: -0.42000008, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &361806957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 361806951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26218c2fdd6921b47a897c15f213f3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera_offset: {x: 0, y: 2.5, z: 0}
+  player_object: {fileID: 0}
+  follow_speed: 3
 --- !u!1001 &564284053
 Prefab:
   m_ObjectHideFlags: 0
@@ -527,6 +544,14 @@ Prefab:
     - target: {fileID: 11489078, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
       propertyPath: weapon
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416812, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
+      propertyPath: ground.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416812, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
+      propertyPath: ground_layer.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
@@ -899,8 +924,8 @@ GameObject:
   - 4: {fileID: 1960912716}
   - 212: {fileID: 1960912718}
   - 61: {fileID: 1960912717}
-  m_Layer: 0
-  m_Name: player
+  m_Layer: 8
+  m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

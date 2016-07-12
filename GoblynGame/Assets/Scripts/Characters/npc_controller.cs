@@ -12,4 +12,19 @@ public class npc_controller : character_controller {
 	void Update () {
 	
 	}
+
+	public override void Add_Health (int amount)
+	{
+		//do nothing
+	}
+
+	public override void Remove_Health (int amount)
+	{
+		//do nothing
+	}
+
+	public override void Die ()
+	{
+		//do nothing
+	}
 }

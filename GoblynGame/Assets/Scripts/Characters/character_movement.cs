@@ -12,10 +12,10 @@ public class character_movement : MonoBehaviour {
 
 	public float jump_speed;
 
-	bool can_jump_key;
-
 	int direction;
 	int look_direction; //not quite happy having 2 directions but... yeah.
+
+	public LayerMask ground_layer;
 
 	void Start(){
 		rigidbody = GetComponent <Rigidbody2D> ();
@@ -35,19 +35,15 @@ public class character_movement : MonoBehaviour {
 		if (_direction != 0 && _direction != look_direction) {
 
 			look_direction = _direction;
-			Vector3 new_position = this.transform.position;
 			Vector3 new_scale = this.transform.localScale;
 
 			if (look_direction == -1) {
 				new_scale.x = -Mathf.Abs (new_scale.x);
-				new_position.x += collider.bounds.extents.x;
 			}
 			else{
 				new_scale.x = Mathf.Abs (new_scale.x);
-				new_position.x -= collider.bounds.extents.x;
 			}
 			this.transform.localScale = new_scale;
-			this.transform.position = new_position;
 		}
 	}
 
@@ -80,24 +76,7 @@ public class character_movement : MonoBehaviour {
 	}
 
 	bool Is_Grounded(){
-		bool is_grounded = false;
-
-		Vector3 left, middle, right;
-		left = middle = right = this.transform.position;
-
-		middle.x += collider.bounds.extents.x;
-		right.x += collider.bounds.extents.x * 2;
-
-		collider.enabled = false;
-
-		if (Physics2D.Raycast (left, -Vector3.up, 0.1f) ||
-			Physics2D.Raycast (middle, -Vector3.up, 01f) ||
-			Physics2D.Raycast (right, -Vector3.up, 01f)){
-			is_grounded = true;
-		}
-
-		collider.enabled = true;
-		return is_grounded;
+		return(Physics2D.OverlapCircle (this.transform.position, 1f, ground_layer));
 	}
 
 

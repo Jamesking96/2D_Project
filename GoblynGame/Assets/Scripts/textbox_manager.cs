@@ -5,6 +5,9 @@ using System.Collections;
 public class textbox_manager : MonoBehaviour {
 
 	bool is_active;
+	public Vector3 textbox_position;
+
+	public GameObject positioning_element;
 
 	public RectTransform panel_transform;
 
@@ -30,6 +33,7 @@ public class textbox_manager : MonoBehaviour {
 	public void Activate(){
 		panel_transform.gameObject.SetActive (true);
 		Load_Text_File (text_file);
+		Set_Position ();
 	}
 
 	public void Deactivate(){
@@ -46,5 +50,14 @@ public class textbox_manager : MonoBehaviour {
 			text += "\n";
 		}
 		text_line.text = text;
+	}
+
+	void Set_Position(){
+		positioning_element.GetComponent <RectTransform>().anchoredPosition = textbox_position;
+	}
+
+	void OnDrawGizmos(){
+		Gizmos.color = Color.green;
+		Gizmos.DrawWireCube (this.transform.position, new Vector3 (GetComponent<BoxCollider2D>().bounds.extents.x * 2, 1, 1));
 	}
 }

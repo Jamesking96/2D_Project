@@ -1,5 +1,5 @@
-This is an introduction.
+Use the Arrow keys to move.
 
-Need to figure out how to do selectable stuff.
+Space to jump.
 
-Also needs positioning work.
+A to attack.
