@@ -30,9 +30,13 @@ public class weapon_controller : MonoBehaviour {
 	public float attack_do_damage; //example: sword swipe down
 	public float attack_ignore_end; //example: return to idle
 
+	float total_attack_time;
+
 	float attack_start_time;
 
 	CircleCollider2D collider;
+
+	Color draw_color;
 
 
 	float enemies_in_range;
@@ -73,12 +77,15 @@ public class weapon_controller : MonoBehaviour {
 		attack_ignore_start = attack_ignore_animation_start [(int)weapon];
 		attack_do_damage = attack_animation_damage_time [(int)weapon];
 		attack_ignore_end = attack_ignore_animation_end [(int)weapon];
+
+		total_attack_time = attack_ignore_start + attack_do_damage + attack_ignore_end;
 	}
 
 	//fix this shit
 	public IEnumerator Start_Attack(){
 		if (!is_attacking) {
-			print ("Start attack");
+			draw_color = Color.green;
+			attack_start_time = Time.fixedTime;
 			is_attacking = true;
 			yield return new WaitForSeconds (attack_ignore_start);
 			StartCoroutine (Attack ());
@@ -87,16 +94,23 @@ public class weapon_controller : MonoBehaviour {
 
 	//eeew oh god oh god oh god whyyyy
 	public IEnumerator Attack(){
-		yield return new WaitForSeconds (0);
-		for (int i = 0; i < enemies.Count; i++) {
-			enemies [i].Remove_Health (damage);
+		draw_color = Color.red;
+		for(int i = 0; i < enemies.Count; i++){
+			enemies [i].is_invulnerable = false;
+		}
+		while(Time.fixedTime < attack_start_time + attack_ignore_start + attack_do_damage){
+			for (int i = 0; i < enemies.Count; i++) {
+				enemies [i].Remove_Health (damage);
+				enemies [i].is_invulnerable = true;
+			}
+			yield return new WaitForSeconds (0);
 		}
 		StartCoroutine (End_Attack ());
-
 	}
 
 	//meh
 	public IEnumerator End_Attack(){
+		draw_color = Color.blue;
 		yield return new WaitForSeconds (attack_ignore_end);
 		print ("Done now");
 		is_attacking = false;
@@ -120,5 +134,10 @@ public class weapon_controller : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	void OnDrawGizmos(){
+		Gizmos.color = draw_color;
+		Gizmos.DrawWireSphere (this.transform.position, range);
 	}
 }
