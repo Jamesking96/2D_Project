@@ -14,9 +14,10 @@ GameObject:
   - 50: {fileID: 5097528}
   - 114: {fileID: 11453018}
   - 114: {fileID: 11416812}
+  - 114: {fileID: 11425902}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.65, y: 1.56, z: 0}
+  m_LocalPosition: {x: -7.07, y: -3.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -142,6 +143,25 @@ MonoBehaviour:
   acceleration: 0.25
   deceleration: 0.25
   jump_speed: 18
+  ground_layer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &11425902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b7c426abc93bd489bbf50a3908802e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head_armor: 0
+  body_armor: 0
+  leg_armor: 0
+  hiddenness: 0
+  damage_resistance: 0
 --- !u!114 &11453018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,7 +176,10 @@ MonoBehaviour:
   movement: {fileID: 11416812}
   animator: {fileID: 9565092}
   health: 100
-  weapon: {fileID: 0}
+  weapon: {fileID: 11489078}
+  gold: 0
+  teeth: 0
+  is_invulnerable: 0
 --- !u!114 &11489078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,12 +191,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca3c013bcc212b41b20597f6ea20752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: 0
+  arrow_prefab: {fileID: 147010, guid: 1234ad318f06f354ba5698f429f2e49e, type: 2}
+  weapon: 7
   attack_method: 0
   range: 0
   damage: 0
-  attack_length: 0
+  attack_ignore_start: 0
+  attack_do_damage: 0
+  attack_ignore_end: 0
   enemies: []
+  player_layer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &21211950
 SpriteRenderer:
   m_ObjectHideFlags: 1

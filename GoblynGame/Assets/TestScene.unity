@@ -533,49 +533,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11453018, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 796359574}
-    - target: {fileID: 139442, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489078, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
-      propertyPath: weapon
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11416812, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
-      propertyPath: ground.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 11416812, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
-      propertyPath: ground_layer.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &564284054 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 139442, guid: 27bb679c8337ca14b8571e1d8837df93, type: 2}
-  m_PrefabInternal: {fileID: 564284053}
---- !u!114 &564284055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 564284054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5b7c426abc93bd489bbf50a3908802e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head_armor: 0
-  body_armor: 0
-  leg_armor: 0
-  hiddenness: 0
-  damage_resistance: 0
 --- !u!1 &730265698
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,12 +610,6 @@ SpriteRenderer:
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!114 &796359574 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11489078, guid: 27bb679c8337ca14b8571e1d8837df93,
-    type: 2}
-  m_PrefabInternal: {fileID: 564284053}
-  m_Script: {fileID: 11500000, guid: bca3c013bcc212b41b20597f6ea20752, type: 3}
 --- !u!1 &922696216
 GameObject:
   m_ObjectHideFlags: 0
